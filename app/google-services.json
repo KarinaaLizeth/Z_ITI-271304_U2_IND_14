@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "658686911105",
+    "project_id": "poliuber",
+    "storage_bucket": "poliuber.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658686911105:android:879dc8d32159a97d16a380",
+        "android_client_info": {
+          "package_name": "com.Z_ITI_271234_U2_IND_14"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJLYMoqSrWGDDj-pYpnUnJD82oh7EfVXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
