@@ -8,7 +8,6 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -19,14 +18,21 @@
             android:id="@+id/btnConductor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Soy Conductor" />
+            android:drawableEnd="@drawable/carro"
+            android:fontFamily="@font/poppins"
+            android:text="Soy Conductor"
+            app:cornerRadius="6dp" />
 
         <Button
             android:id="@+id/btnPasajero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableEnd="@drawable/usuario"
+            android:fontFamily="@font/poppins"
             android:text="Soy Pasajero"
-            android:layout_marginTop="20dp" />
+            app:cornerRadius="6dp" />
+
 
     </LinearLayout>
 

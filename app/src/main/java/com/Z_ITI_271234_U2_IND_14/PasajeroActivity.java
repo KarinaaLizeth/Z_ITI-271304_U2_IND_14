@@ -43,23 +43,18 @@ public class PasajeroActivity extends AppCompatActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicitante);
 
-        // Inicializar Firebase y la referencia a la base de datos
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseRef = database.getReference("pasajeros");
 
-        // Inicializar el cliente de ubicación
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        // Configurar el mapa
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_solicitante);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
 
-        // Inicializar el botón de solicitar viaje
         solicitarViajeButton = findViewById(R.id.solicitarViajeButton);
 
-        // Cuando se presiona el botón, guardar la ubicación en Firebase
         solicitarViajeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +67,6 @@ public class PasajeroActivity extends AppCompatActivity implements OnMapReadyCal
             }
         });
 
-        // Verificar y solicitar permisos de ubicación
         checkLocationPermission();
     }
 
@@ -80,24 +74,20 @@ public class PasajeroActivity extends AppCompatActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Activar la ubicación del usuario
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
             getLastKnownLocation();
         } else {
-            // Solicitar permisos si no están otorgados
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
     }
 
     private void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Si no tenemos permisos, solicitarlos
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
     }
 
-    // Obtener la última ubicación conocida del pasajero y mostrarla en el mapa
     private void getLastKnownLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
@@ -138,7 +128,6 @@ public class PasajeroActivity extends AppCompatActivity implements OnMapReadyCal
         }
     }
 
-    // Manejar la respuesta de los permisos solicitados
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -153,4 +142,5 @@ public class PasajeroActivity extends AppCompatActivity implements OnMapReadyCal
             }
         }
     }
+
 }

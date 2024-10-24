@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.Z_ITI_271234_U2_IND_14"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.Z_ITI_271234_U2_IND_14"
@@ -27,8 +27,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -39,6 +39,7 @@ dependencies {
     implementation ("com.google.maps:google-maps-services:0.2.7")
     implementation ("com.android.volley:volley:1.2.1")
     implementation ("com.google.maps.android:android-maps-utils:2.3.0")
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
